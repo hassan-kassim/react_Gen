@@ -4,7 +4,6 @@ import Sidebar from './sideBar/sidebar';
 import MainContent from './MainContent/main';
 import TopHeader from './header/header';
 import LoginPage from '../login/login';
-import { Toaster } from 'react-hot-toast';
 
 export default function Dashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -14,10 +13,9 @@ export default function Dashboard() {
   };
 
   return (
-    <fragment>
-    <LoginPage />
-    <Toaster />
-    </fragment>
+    <>
+      <LoginPage />
+    </>
 
     // <div className="flex h-screen bg-slate-100 text-slate-800 overflow-hidden">
     //   {sidebarOpen ?

@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import { loginUser } from '../../../shared/services/authService';
 import { toastService } from '../../../shared/services/toasterMessage';
+import { useAuthStore } from '../../../shared/store/authStore'; // Import the store hook
+
 
 export default function LoginPage() {
 
   // Pull values and actions directly from the store
+  const loginAction = useAuthStore((state) => state.login);
+
   const [email, setEmail] = useState('user@example.com');
   const [password, setPassword] = useState('Password123!');
   const [rememberMe, setRememberMe] = useState(false);
@@ -13,7 +17,6 @@ export default function LoginPage() {
    // Network Request States
   const [isLoading, setIsLoading] = useState(false);
   const [apiError, setApiError] = useState('');
-  const [apiSuccess, setApiSuccess] = useState('');
 
   // Standard RFC 5322 Email Validation Regex
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\$/;
@@ -56,10 +59,11 @@ export default function LoginPage() {
             
             // Execute the business layer service call directly
             const response = await loginUser(email, password);
-            setApiSuccess(`Success! Welcome back, ${response.user.name}.`);
-            toastService.success(apiSuccess);
+            loginAction(response.user, response.token);
+            toastService.success(`Success! Welcome back, ${response.user.name}.`);
 
             //set up router in to navigate to dashboard page after successful login
+
             console.log('Login Response:', response);
         } catch (err) {
             setApiError(err.message || 'An unexpected error occurred.');
