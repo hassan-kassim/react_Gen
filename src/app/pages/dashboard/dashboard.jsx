@@ -1,9 +1,9 @@
+"use client";
+
 import React, { useState } from 'react';
-import { Bell, Menu } from 'lucide-react';
 import Sidebar from './sideBar/sidebar';
 import MainContent from './MainContent/main';
 import TopHeader from './header/header';
-import LoginPage from '../login/login';
 
 export default function Dashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -13,25 +13,25 @@ export default function Dashboard() {
   };
 
   return (
-    <>
-      <LoginPage />
-    </>
+    // <>
+    //   <LoginPage />
+    // </>
 
-    // <div className="flex h-screen bg-slate-100 text-slate-800 overflow-hidden">
-    //   {sidebarOpen ?
-    //     <Sidebar
-    //       sidebarOpen={sidebarOpen}
-    //       setSidebarOpen={toggleSidebar}
-    //     /> : null
-    //   }
-    //   <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
-    //     <TopHeader 
-    //       sidebarOpen={sidebarOpen}
-    //       toggleSidebar={toggleSidebar}
-    //     />
-    //     <MainContent />
-    //   </div>
-    // </div>
+    <div className="flex h-screen bg-slate-100 text-slate-800 overflow-hidden">
+      {sidebarOpen ?
+        <Sidebar
+          sidebarOpen={sidebarOpen}
+          setSidebarOpen={toggleSidebar}
+        /> : null
+      }
+      <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
+        <TopHeader 
+          sidebarOpen={sidebarOpen}
+          toggleSidebar={toggleSidebar}
+        />
+        <MainContent />
+      </div>
+    </div>
 
   );
 }

@@ -5,8 +5,14 @@ import {
   X, 
   LogOut, 
 } from 'lucide-react';
- 
+import { useAuthStore } from '../../../../shared/store/authStore'; // Import the store hook
+import { useRouter } from 'next/navigation'; // Import the Next.js router hook
+
 export default function Sidebar({ sidebarOpen, toggleSidebar }) {
+    const router = useRouter();
+    // Pull values and actions directly from the store
+    const logoutAction = useAuthStore((state) => state.logout);
+
     return (
       <aside 
         className={`fixed inset-y-0 left-0 z-50 w-64 bg-slate-900 text-slate-100 flex flex-col transition-transform duration-300 ease-in-out md:static ${
@@ -53,7 +59,7 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
 
         {/* Sidebar Footer / User Profile */}
         <div className="p-4 border-t border-slate-800">
-          <button className="flex items-center w-full px-4 py-2 text-slate-400 hover:text-red-400 transition-colors">
+          <button onClick={() => {logoutAction(); router.push('/'); }} className="flex items-center w-full px-4 py-2 text-slate-400 hover:text-red-400 transition-colors">
             <LogOut className="w-5 h-5 mr-3" />
             <span>Sign Out</span>
           </button>
