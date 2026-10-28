@@ -1,11 +1,14 @@
+"use client";
+
 import React, { useState } from 'react';
 import { loginUser } from '../../../shared/services/authService';
 import { toastService } from '../../../shared/services/toasterMessage';
 import { useAuthStore } from '../../../shared/store/authStore'; // Import the store hook
+import { useRouter } from 'next/navigation'; // Crucial: Next.js native navigation hook
 
 
 export default function LoginPage() {
-
+  const router = useRouter();
   // Pull values and actions directly from the store
   const loginAction = useAuthStore((state) => state.login);
 
@@ -63,7 +66,7 @@ export default function LoginPage() {
             toastService.success(`Success! Welcome back, ${response.user.name}.`);
 
             //set up router in to navigate to dashboard page after successful login
-
+            router.push('/dashboard');
             console.log('Login Response:', response);
         } catch (err) {
             setApiError(err.message || 'An unexpected error occurred.');
