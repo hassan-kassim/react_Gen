@@ -1,9 +1,9 @@
+"use client";
+
 import React, { useState } from 'react';
-import { Bell, Menu } from 'lucide-react';
 import Sidebar from './sideBar/sidebar';
 import MainContent from './MainContent/main';
 import TopHeader from './header/header';
-import LoginPage from '../login/login';
 
 export default function Dashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
