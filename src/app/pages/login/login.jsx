@@ -53,8 +53,6 @@ export default function LoginPage() {
     const isEmailValid = validateEmail(email);
 
     if (isEmailValid) {
-      console.log('Logging in with:', { email, password });
-
       // Proceed with API call here
 
         try {
@@ -66,8 +64,8 @@ export default function LoginPage() {
             toastService.success(`Success! Welcome back, ${response.user.name}.`);
 
             //set up router in to navigate to dashboard page after successful login
+             router.refresh();
             router.push('/dashboard');
-            console.log('Login Response:', response);
         } catch (err) {
             setApiError(err.message || 'An unexpected error occurred.');
         } finally {
@@ -166,7 +164,6 @@ export default function LoginPage() {
                   onChange={(e) => {
                     const checked = e.target.checked;
                     setRememberMe(checked);
-                    console.log('Remember Me:', checked);
                   }}
                   className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
                 />
