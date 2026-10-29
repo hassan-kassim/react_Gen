@@ -13,9 +13,6 @@ export default function Dashboard() {
   };
 
   return (
-    // <>
-    //   <LoginPage />
-    // </>
 
     <div className="flex h-screen bg-slate-100 text-slate-800 overflow-hidden">
       {sidebarOpen ?
