@@ -5,6 +5,7 @@ import {
   X, 
   LogOut, 
 } from 'lucide-react';
+import Link from 'next/link';
 import { useAuthStore } from '../../../../shared/store/authStore'; // Import the store hook
 import { useRouter } from 'next/navigation'; // Import the Next.js router hook
 
@@ -15,8 +16,8 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
 
     const handleLogout = () => {
       logoutAction();
-      router.refresh();
       router.push('/');
+      router.refresh();
     };
 
     return (
@@ -40,27 +41,27 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
 
         {/* Navigation Links */}
         <nav className="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
-          <a 
-            href="#dashboard" 
+          <Link 
+            href="/dashboard" 
             className="flex items-center px-4 py-2.5 bg-slate-800 text-white rounded-lg font-medium transition-colors"
           >
             <LayoutDashboard className="w-5 h-5 mr-3" />
             Dashboard
-          </a>
-          <a 
-            href="#users" 
+          </Link>
+          <Link 
+            href="/users" 
             className="flex items-center px-4 py-2.5 text-slate-400 hover:bg-slate-800 hover:text-white rounded-lg font-medium transition-colors"
           >
             <Users className="w-5 h-5 mr-3" />
             Users
-          </a>
-          <a 
-            href="#settings" 
+          </Link>
+          <Link 
+            href="/settings" 
             className="flex items-center px-4 py-2.5 text-slate-400 hover:bg-slate-800 hover:text-white rounded-lg font-medium transition-colors"
           >
             <Settings className="w-5 h-5 mr-3" />
             Settings
-          </a>
+          </Link>
         </nav>
 
         {/* Sidebar Footer / User Profile */}

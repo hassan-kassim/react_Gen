@@ -17,7 +17,7 @@ export function proxy(request) {
 
   // 2. RESTRICT PROTECTED PORTAL PAGES
   // If NOT authenticated, block entry to the dashboard and send them to login
-  if (path.startsWith('/dashboard')) {
+  if (path.startsWith('/users') || path.startsWith('/settings') || path.startsWith('/dashboard')) {
     if (!isAuthenticated) {
       return NextResponse.redirect(new URL('/', request.url));
     }
@@ -29,5 +29,5 @@ export function proxy(request) {
 // 3. MATCH PATTERNS
 // Optimize performance by only executing the middleware on specific routing paths
 export const config = {
-  matcher: ['/', '/dashboard'],
+  matcher: ['/', '/dashboard', '/users', '/settings'],
 };

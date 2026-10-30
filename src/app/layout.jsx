@@ -1,5 +1,6 @@
 import './globals.css';
 import { Toaster } from 'react-hot-toast';
+import AppShell from './app-shell';
 
 export const metadata = {
   title: 'React Gen',
@@ -10,7 +11,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        {children}
+        <AppShell>{children}</AppShell>
         <Toaster />
       </body>
     </html>
