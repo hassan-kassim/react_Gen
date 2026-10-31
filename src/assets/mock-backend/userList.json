@@ -1,1 +1,26 @@
-
+[
+  {
+    "id": "device-001-1",
+    "browser": "Chrome",
+    "device": "Windows",
+    "location": "United States",
+    "lastActive": "Active now",
+    "isCurrentDevice": true
+  },
+  {
+    "id": "device-001-2",
+    "browser": "Safari",
+    "device": "iPhone",
+    "location": "United States",
+    "lastActive": "1 day ago",
+    "isCurrentDevice": false
+  },
+  {
+    "id": "device-001-3",
+    "browser": "Firefox",
+    "device": "Mac",
+    "location": "United States",
+    "lastActive": "4 days ago",
+    "isCurrentDevice": false
+  }
+]

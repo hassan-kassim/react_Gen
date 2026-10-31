@@ -1,4 +1,5 @@
+import Users from '../pages/users/users';
 
 export default function UsersPage() {
-  return <div className="h-screen w-screen">Welcome to user list</div>;
+  return <Users />;
 }

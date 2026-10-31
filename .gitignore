@@ -24,3 +24,7 @@ out
 *.njsproj
 *.sln
 *.sw?
+# Local environment configurations
+.env*.local
+.env.development
+.env.production
