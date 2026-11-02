@@ -30,7 +30,7 @@ export default function Users() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
+    <div className="min-h-0 flex-1 overflow-y-auto bg-gray-50 p-6">
       <div className="max-w-6xl mx-auto bg-white rounded-lg shadow-sm border border-gray-100 p-6">
         
         {/* Navigation Head */}

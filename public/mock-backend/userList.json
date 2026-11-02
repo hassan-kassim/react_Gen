@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "name": "Leanne Graham",
+    "email": "Sincere@april.biz",
+    "username": "Bret",
+    "company": {
+      "name": "Romaguera-Crona"
+    },
+    "address": {
+      "city": "Gwenborough"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Ervin Howell",
+    "email": "Shanna@melissa.tv",
+    "username": "Antonette",
+    "company": {
+      "name": "Deckow-Crist"
+    },
+    "address": {
+      "city": "Wisokyburgh"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Clementine Bauch",
+    "email": "Nathan@yesenia.net",
+    "username": "Samantha",
+    "company": {
+      "name": "Romaguera-Jacobson"
+    },
+    "address": {
+      "city": "McKenziehaven"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Patricia Lebsack",
+    "email": "Karianne@kory.org",
+    "username": "Karianne",
+    "company": {
+      "name": "Robel-Corkery"
+    },
+    "address": {
+      "city": "South Elvis"
+    }
+  },
+  {
+    "id": 5,
+    "name": "Chelsey Dietrich",
+    "email": "Kamren@kathryne.net",
+    "username": "Kamren",
+    "company": {
+      "name": "Keebler LLC"
+    },
+    "address": {
+      "city": "Roscoeview"
+    }
+  },
+  {
+    "id": 6,
+    "name": "Dennis Schulist",
+    "email": "Leopoldo_Corkery@ole.net",
+    "username": "Leopoldo_Corkery",
+    "company": {
+      "name": "Considine-Lockman"
+    },
+    "address": {
+      "city": "South Christy"
+    }
+  },
+  {
+    "id": 7,
+    "name": "Kurtis Weissnat",
+    "email": "Elwyn.Skiles@example.com",
+    "username": "Elwyn.Skiles",
+    "company": {
+      "name": "Johns Group"
+    },
+    "address": {
+      "city": "Howemouth"
+    }
+  },
+  {
+    "id": 8,
+    "name": "Nicholas Runolfsdottir V",
+    "email": "Maxime_Nienow@tromp.com",
+    "username": "Maxime_Nienow",
+    "company": {
+      "name": "Abernathy Group"
+    },
+    "address": {
+      "city": "Aliyaview"
+    }
+  }
+]
