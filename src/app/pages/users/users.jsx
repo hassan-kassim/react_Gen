@@ -1,32 +1,22 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Link from 'next/link';
-import { fetchUsersList } from '../../../shared/services/userService';
+import { useUserActions } from '../../../state/dispatchers/useUserActions';
+import { useSelector } from 'react-redux';
+import { selectAllUsers, selectUsersLoading, selectUsersError, selectTotalUsersCount } from '../../../state/selectors/userSelectors';
 
 export default function Users() {
-  const [users, setUsers] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState('');
+  // 1. Consume clean, functional selectors
+  const users = useSelector(selectAllUsers);
+  const isLoading = useSelector(selectUsersLoading);
+  const error = useSelector(selectUsersError);
+  const totalCount = useSelector(selectTotalUsersCount);
 
-  console.log('user list calls')
-  // Trigger the Axios call instantly when the component mounts
+  const { fetchUsers } = useUserActions();
+
   useEffect(() => {
-    console.log('Fetching users list...'); // Debugging: Log when the fetch starts
-    const loadUsers = async () => {
-      try {
-        setIsLoading(true);
-        setError('');
-        const data = await fetchUsersList();
-        setUsers(data);
-      } catch (err) {
-        setError(err.message || 'Something went wrong while fetching data.');
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    loadUsers();
+    fetchUsers();
   }, []);
 
   return (
@@ -46,7 +36,7 @@ export default function Users() {
           </div>
           
           <div className="text-sm font-medium text-gray-500 bg-gray-50 border border-gray-200 px-3 py-1.5 rounded-md self-start sm:self-center">
-            Total Records: <span className="text-indigo-600 font-bold">{users.length}</span>
+            Total Records: <span className="text-indigo-600 font-bold">{totalCount}</span>
           </div>
         </div>
 
@@ -84,6 +74,7 @@ export default function Users() {
                 {users.map((user) => (
                   <tr key={user.id} className="hover:bg-gray-50/70 transition-colors">
                     <td className="py-3.5 px-4">
+                      <Link href={`/users/${user.id}`} className="text-indigo-600 hover:text-indigo-800 hover:underline transition-colors">
                       <div className="flex items-center gap-3">
                         <div className="w-8 h-8 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-700 text-xs font-bold flex items-center justify-center uppercase shrink-0">
                           {user.name.charAt(0)}
@@ -93,9 +84,10 @@ export default function Users() {
                           <span className="block text-xs text-gray-400 font-normal">{user.email}</span>
                         </div>
                       </div>
+                      </Link>
                     </td>
                     <td className="py-3.5 px-4 font-mono text-xs text-gray-500">
-                      @{user.username.toLowerCase()}
+                        @{user.username.toLowerCase()}
                     </td>
                     <td className="py-3.5 px-4 text-gray-600">
                       {user.company}
