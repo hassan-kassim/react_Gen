@@ -12,6 +12,7 @@
     "lint": "oxlint"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.14.0",
     "axios": "^1.21.0",
     "cookies-next": "^6.1.1",
     "lucide-react": "^1.56.0",
@@ -19,6 +20,7 @@
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "react-hot-toast": "^2.6.1",
+    "react-redux": "^9.3.1",
     "tailwindcss": "^4.3.3",
     "zustand": "^5.0.16"
   },

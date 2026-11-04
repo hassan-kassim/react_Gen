@@ -1,6 +1,7 @@
 import './globals.css';
 import { Toaster } from 'react-hot-toast';
 import AppShell from './app-shell';
+import { ReduxProvider } from '../state/providers';
 
 export const metadata = {
   title: 'React Gen',
@@ -11,7 +12,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <AppShell>{children}</AppShell>
+        <AppShell>
+          <ReduxProvider> {children} </ReduxProvider>
+        </AppShell>
         <Toaster />
       </body>
     </html>
