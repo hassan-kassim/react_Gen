@@ -4,13 +4,16 @@ import {
   Settings, 
   X, 
   LogOut, 
+  FileText,
+  FileBarChart
 } from 'lucide-react';
 import Link from 'next/link';
 import { useAuthStore } from '../../../../shared/store/authStore'; // Import the store hook
-import { useRouter } from 'next/navigation'; // Import the Next.js router hook
+import { useRouter, usePathname } from 'next/navigation'; // Import the Next.js router hook
 
 export default function Sidebar({ sidebarOpen, toggleSidebar }) {
     const router = useRouter();
+    const pathname = usePathname().split('/')[1];
     // Pull values and actions directly from the store
     const logoutAction = useAuthStore((state) => state.logout);
 
@@ -54,6 +57,20 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
           >
             <Users className="w-5 h-5 mr-3" />
             Users
+          </Link>
+          <Link 
+            href="/rag" 
+            className="flex items-center px-4 py-2.5 text-slate-400 hover:bg-slate-800 hover:text-white rounded-lg font-medium transition-colors"
+          >
+            <FileText className="w-5 h-5 mr-3" />
+            Rag
+          </Link>
+          <Link 
+            href="/settings" 
+            className="flex items-center px-4 py-2.5 text-slate-400 hover:bg-slate-800 hover:text-white rounded-lg font-medium transition-colors"
+          >
+            <FileBarChart className="w-5 h-5 mr-3" />
+            Excel Anaytics
           </Link>
           <Link 
             href="/settings" 
