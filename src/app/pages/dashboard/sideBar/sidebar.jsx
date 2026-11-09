@@ -46,35 +46,35 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
         <nav className="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
           <Link 
             href="/dashboard" 
-            className="flex items-center px-4 py-2.5 bg-slate-800 text-white rounded-lg font-medium transition-colors"
+            className={`flex items-center px-4 py-2.5 ${pathname === 'dashboard' ? 'bg-slate-800 text-white' : 'text-slate-400 hover:bg-slate-800 hover:text-white'} rounded-lg font-medium transition-colors`}
           >
             <LayoutDashboard className="w-5 h-5 mr-3" />
             Dashboard
           </Link>
           <Link 
             href="/users" 
-            className="flex items-center px-4 py-2.5 text-slate-400 hover:bg-slate-800 hover:text-white rounded-lg font-medium transition-colors"
+            className={`flex items-center px-4 py-2.5 ${pathname === 'users' ? 'bg-slate-800 text-white' : 'text-slate-400 hover:bg-slate-800 hover:text-white'} rounded-lg font-medium transition-colors`}
           >
             <Users className="w-5 h-5 mr-3" />
             Users
           </Link>
           <Link 
             href="/rag" 
-            className="flex items-center px-4 py-2.5 text-slate-400 hover:bg-slate-800 hover:text-white rounded-lg font-medium transition-colors"
+            className={`flex items-center px-4 py-2.5 ${pathname === 'rag' ? 'bg-slate-800 text-white' : 'text-slate-400 hover:bg-slate-800 hover:text-white'} rounded-lg font-medium transition-colors`}
           >
             <FileText className="w-5 h-5 mr-3" />
             Rag
           </Link>
           <Link 
-            href="/settings" 
-            className="flex items-center px-4 py-2.5 text-slate-400 hover:bg-slate-800 hover:text-white rounded-lg font-medium transition-colors"
+            href="/excelAnalytics" 
+            className={`flex items-center px-4 py-2.5 ${pathname === 'excelAnalytics' ? 'bg-slate-800 text-white' : 'text-slate-400 hover:bg-slate-800 hover:text-white'} rounded-lg font-medium transition-colors`}
           >
             <FileBarChart className="w-5 h-5 mr-3" />
             Excel Anaytics
           </Link>
           <Link 
             href="/settings" 
-            className="flex items-center px-4 py-2.5 text-slate-400 hover:bg-slate-800 hover:text-white rounded-lg font-medium transition-colors"
+            className={`flex items-center px-4 py-2.5 ${pathname === 'settings' ? 'bg-slate-800 text-white' : 'text-slate-400 hover:bg-slate-800 hover:text-white'} rounded-lg font-medium transition-colors`}
           >
             <Settings className="w-5 h-5 mr-3" />
             Settings
