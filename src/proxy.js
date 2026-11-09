@@ -29,5 +29,5 @@ export function proxy(request) {
 // 3. MATCH PATTERNS
 // Optimize performance by only executing the middleware on specific routing paths
 export const config = {
-  matcher: ['/', '/dashboard', '/users', '/users/:path*', '/settings', '/rag'],
+  matcher: ['/', '/dashboard', '/users', '/users/:path*', '/settings', '/rag', '/excelAnalytics'],
 };
